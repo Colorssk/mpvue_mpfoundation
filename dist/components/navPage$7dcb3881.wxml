@@ -1,0 +1,5 @@
+<template name="navPage$7dcb3881">
+  <view style="display:block" class="_div data-v-5cbdefa2 nav_page_item">
+    <view wx:key="item" key="{{item}}" style="height:100rpx;text-align:left;line-height:100rpx;" wx:for="{{data}}" wx:for-index="index" wx:for-item="item" class="_div data-v-5cbdefa2"> {{item.title}} </view>
+  </view>
+</template>

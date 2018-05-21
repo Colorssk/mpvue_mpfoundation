@@ -1,0 +1,18 @@
+<template name="swiper$271ea799">
+  <view class="_div data-v-4f580858">
+    <swiper indicator-dots="{{defaultConfig.indicatorDots}}" indicator-color="{{defaultConfig.indicatorColor}}" indicator-active-color="{{defaultConfig.indicatorActiveColor}}" autoplay="{{defaultConfig.autoplay}}" current="{{defaultConfig.current}}" interval="{{defaultConfig.interval}}"
+      duration="{{defaultConfig.duration}}" circular="{{defaultConfig.circular}}" vertical="{{defaultConfig.vertical}}" previous-margin="{{defaultConfig.previousMargin}}" next-margin="{{defaultConfig.nextMargin}}" display-multiple-items="{{defaultConfig.displayMultipleItems}}"
+      class="_swiper data-v-4f580858" style=" {{defaultConfig.style}}">
+      <block wx:key="item" key="{{item}}" wx:for="{{list}}" wx:for-index="index" wx:for-item="item">
+        <navigator wx:if="{{item.jumpUrl}}" url="{{item.jumpUrl}}" class="_a data-v-4f580858">
+          <swiper-item class="_swiper-item data-v-4f580858">
+            <image src="{{item.url}}" class="_image data-v-4f580858 slide-image" style=" {{defaultConfig.style}}"></image>
+          </swiper-item>
+        </navigator>
+        <swiper-item wx:if="{{!item.jumpUrl}}" class="_swiper-item data-v-4f580858">
+          <image src="{{item.url}}" class="_image data-v-4f580858 slide-image" style=" {{defaultConfig.style}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</template>

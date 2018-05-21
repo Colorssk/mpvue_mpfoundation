@@ -1,0 +1,8 @@
+<import src="swiper$271ea799" />
+<import src="navbar$025ae19e" />
+<template name="index$9c160ddc">
+  <view class="_div data-v-4ba34c5e container">
+    <template data="{{...$root[$kk+undefined], $root}}" is="swiper$271ea799"></template>
+    <template data="{{...$root[$kk+'0'], $root}}" is="navbar$025ae19e"></template>
+  </view>
+</template>
