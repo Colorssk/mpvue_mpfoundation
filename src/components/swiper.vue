@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div :style="{width: width, height: height}">
     <swiper
-      :style="defaultConfig.style"
+      :style="{height: height}"
       :indicator-dots="defaultConfig.indicatorDots"
       :indicator-color="defaultConfig.indicatorColor"
       :indicator-active-color="defaultConfig.indicatorActiveColor"
@@ -21,7 +21,7 @@
             <image :src="item.url" class="slide-image" :style="defaultConfig.style" />
           </swiper-item>
         </a>
-        <swiper-item v-if="!item.jumpUrl">
+        <swiper-item v-else>
           <image :src="item.url" class="slide-image" :style="defaultConfig.style" />
         </swiper-item>
       </block>
@@ -31,11 +31,21 @@
 
 <script>
 export default {
-  props: ['list', 'config'],
+  props: {
+    list: Object,
+    config: Array,
+    width: {
+      type: String,
+      default: '100vw'
+    },
+    height: {
+      type: String,
+      default: '25vh'
+    }
+  },
   data () {
     return {
       defaultConfig: {
-        style: 'width:100%;width:100vw',
         width: '100%',
         height: 150,
         indicatorDots: true,
@@ -70,7 +80,8 @@ export default {
 </script>
 
 <style>
-.card {
-  padding: 10px;
+.slide-image {
+  width: 100%;
+  /* height: 100%; */
 }
 </style>

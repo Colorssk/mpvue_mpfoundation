@@ -1,6 +1,10 @@
 <template>
   <div class="container">
-    <swiper :list="list" :config="swiperConfig"></swiper>
+    <swiper
+      width="100vw"
+      height="30vh"
+      :list="list" >
+    </swiper>
     <navbar
       :pageHeight="'100vh'"
       :pageBottomPadding="'40vh'"
