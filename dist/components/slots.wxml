@@ -1,9 +1,0 @@
-<import src="swiper$271ea799" />
-<import src="navbar$025ae19e" />
-<import src="card$d8de071e" />
-<import src="loading$57405e6b" />
-<import src="navPage$7dcb3881" />
-<import src="slots" />
-<template name="data-v-4ba34c5e-default-0">
-  <view wx:key="nav" key="{{nav}}" wx:for="{{navDataList[navIndex]}}" wx:for-index="index" wx:for-item="nav" class="_li data-v-4ba34c5e">{{nav.title}}</view>
-</template>

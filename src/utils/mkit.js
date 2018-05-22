@@ -28,7 +28,9 @@ export default {
           return reject(res)
         }
         if (data.cache !== false) {
-          this.debugLog('from storage network', data.method + ': ', data.url, '\n[data] ', res)
+          this.debugLog(`from storage network ${data.method}: ${data.url}`,
+                        '\nrequest data: ', data.data,
+                        '\nresponse data:  ', res)
           setCache(orginDataMd5, res.data, expires)
         }
         resolve(res.data, res)
@@ -36,7 +38,9 @@ export default {
       if (data.cache !== false) {
         const res = getCache(orginDataMd5)
         if (res) {
-          this.debugLog('from storage cache', data.method + ': ', data.url, '\nrespone data: ', res)
+          this.debugLog(`from storage cache ${data.method}: ${data.url}`,
+                        '\nrequest data: ', data.data,
+                        '\nrespone data: ', res)
           return resolve(res, res)
         }
       }
@@ -61,7 +65,7 @@ export default {
   },
   debugLog (...data) {
     if (this.debug) {
-      console.log('%c [Mokyun kit] ', 'color:green', ...data)
+      console.log('%c[Mokyun kit] ', 'color:green', ...data)
       console.log(' ')
     }
   }

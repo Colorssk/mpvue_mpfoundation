@@ -1,8 +1,0 @@
-<import src="loading$57405e6b" />
-<template name="preload$2a1b1049">
-  <view class="_div data-v-297f3d48 container">
-    <view class="_div data-v-297f3d48">
-      <template data="{{...$root[$kk+'0'], $root}}" is="loading$57405e6b"></template>
-    </view>
-  </view>
-</template>

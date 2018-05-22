@@ -4,7 +4,7 @@ import mkit from '@/utils/mkit'
 export default {
   login (code) {
     return mkit.post({
-      url: domain + '/wxusers/authenticate',
+      url: domain + '/wxusers/authenticate/miniProgram',
       data: { code: code }
     })
   }

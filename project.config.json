@@ -10,7 +10,7 @@
 	"miniprogramRoot": "./dist/",
 	"compileType": "miniprogram",
 	"appid": "wx9eb7b89eefa405da",
-	"projectname": "foundation",
+	"projectname": "mpfoundation",
 	"condition": {
 		"search": {
 			"current": -1,
