@@ -55,7 +55,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 scroll-view, scroll-view .item, scroll-view .page {
   height: 70rpx;
   display: flex;

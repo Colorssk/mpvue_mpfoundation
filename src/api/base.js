@@ -5,7 +5,8 @@ export default {
   login (code) {
     return mkit.post({
       url: domain + '/wxusers/authenticate/miniProgram',
-      data: { code: code }
+      data: { code: code },
+      cache: false
     })
   }
 }

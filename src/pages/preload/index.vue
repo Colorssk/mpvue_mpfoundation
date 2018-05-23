@@ -32,8 +32,10 @@ export default {
           console.log(tokenInfo.exp)
           if (tokenInfo.exp * 1000 > Date.parse(Date())) {
             this.goHome()
+            return true
+          } else {
+            return false
           }
-          return true
         } else {
           return false
         }

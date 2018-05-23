@@ -27,7 +27,7 @@ export default {
     return {
       motto: 'Hello World',
       list: [
-        {url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525973905279&di=00933624d6cba7c666fec41046cae35d&imgtype=0&src=http%3A%2F%2Fh.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Fa5c27d1ed21b0ef48c509cecd1c451da80cb3ec3.jpg'},
+        {url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525973905279&di=00933624d6cba7c666fec41046cae35d&imgtype=0&src=http%3A%2F%2Fh.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Fa5c27d1ed21b0ef48c509cecd1c451da80cb3ec3.jpg', jumpUrl: 'pages/s'},
         {url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525973905279&di=00933624d6cba7c666fec41046cae35d&imgtype=0&src=http%3A%2F%2Fh.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Fa5c27d1ed21b0ef48c509cecd1c451da80cb3ec3.jpg'},
         {url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525975376412&di=b93889ffb5fafd9031096630eccdf8e9&imgtype=0&src=http%3A%2F%2Fd.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F9345d688d43f8794f7940c9ede1b0ef41bd53a12.jpg'}
       ],
