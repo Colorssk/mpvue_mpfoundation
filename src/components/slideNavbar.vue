@@ -1,15 +1,20 @@
 <template>
-  <scroll-view class="swiper-tab" scroll-x :style="{width: width, height: height, marginLeft: rightFloat + marginLeft + 'px'}">
-    <view :style="menuStyle" v-for=" (item,index) in navList" :key="index" class="swiper-tab-item" :data-current="index" @tap="swichNav">{{item.title}}</view>
-    <view class="block" :style="style"></view>
+  <div :style="{backgroundColor: backgroundColor, color: fontColor}">
+  <scroll-view class="swiper-tab" scroll-x :style="{width: width, height: height, marginLeft: marginLeft + 'px'}">
+    <!-- default mode -->
+    <view v-if="mode =='default'" :style="menuStyle" v-for=" (item,index) in navList" :key="index" class="swiper-tab-item" :data-current="index" @click="swichNav(index)">{{item.title}}</view>
+    <view v-if="mode =='default'" class="block" :style="{left: style.left, width: style.width, backgroundColor: sliderBlockColor}"></view>
+    <!-- day mode -->
+    <view v-if="mode =='day'" :style="menuStyle" v-for=" (item,index) in days" :key="index" class="swiper-tab-item days-mode" :data-current="index" @click="swichDate(index)">
+      <div>{{item.dayName}}</div><div :class="index == currentDateIndex ? 'active' : ''">{{item.dayNumber}}</div>
+    </view>
+    <!-- items mode -->
+    <view v-if="mode =='items'" :style="menuStyle" v-for=" (item,index) in navList" :key="index" class="swiper-tab-item" :class="currentTab === index ? 'active-tab-item' : ''" :data-current="index" @click="swichNav(index)"><span>{{item.title}}</span></view>
+
   </scroll-view>
+  </div>
 </template>
 <script>
-// import wxp from 'minapp-api-promise'
-// import {
-//   this.obj2style
-// } from '@/common/js/basic'
-
 export default {
   name: 'slider-nav',
   data () {
@@ -17,7 +22,7 @@ export default {
       winWidth: null,
       winHeight: null,
       navWidth: null,
-      marginLeft: null
+      currentDateIndex: null
     }
   },
   props: {
@@ -35,7 +40,8 @@ export default {
       default: '-'
     },
     navList: {
-      type: Array
+      type: Array,
+      default: []
     },
     menuWidth: {
       type: Number
@@ -50,6 +56,20 @@ export default {
     },
     currentChanged: {
       type: Function
+    },
+    backgroundColor: {
+      type: String
+    },
+    fontColor: {
+      type: String
+    },
+    sliderBlockColor: {
+      type: String,
+      default: '#FFF'
+    },
+    mode: {
+      type: String,
+      default: 'default'
     }
   },
   methods: {
@@ -60,15 +80,18 @@ export default {
       })
       return str.join(';')
     },
-    swichNav (e) {
-      const {
-        current
-      } = e.target.dataset
+    swichNav (current) {
       if (this.currentTab === current) return false
-        // else this.currentTab = current
       else {
-        this.currentChanged(current)
-        // this.$emit('update:currentTab', current)
+        console.log(current)
+        this.currentChanged(current, this.navList[current])
+      }
+    },
+    swichDate (current) {
+      if (this.currentTab === current) return false
+      else {
+        this.currentDateIndex = current
+        this.currentChanged(current, this.days[current])
       }
     },
     swiperChange (e) {
@@ -79,17 +102,34 @@ export default {
     }
   },
   computed: {
+    days () {
+      const dayName = ['日', '一', '二', '三', '四', '五', '六']
+      const date = new Date()
+      date.setSeconds(0)
+      date.setMinutes(0)
+      date.setHours(0)
+      const days = []
+      const currentDate = date.getDate()
+      date.setDate(date.getDate() - 3)
+      for (let i = 0; i < 15; i++) {
+        days[i] = {}
+        days[i].dayNumber = date.getDate()
+        days[i].dayName = dayName[date.getDay()]
+        days[i].timestamp = Date.parse(date)
+        date.setDate(date.getDate() + 1)
+        if (days[i].dayNumber === currentDate) {
+          this.currentDateIndex = i
+        }
+      }
+      return days
+    },
     style: {
       get: function () {
         // 计算左侧剩余多少宽度，所以滚动条起始位置要加
         let leftWidth = (this.winWidth - this.navList.length * this.navWidth) / 2
         let width = this.navWidth + 'px'
         let left = leftWidth + this.navWidth * this.currentTab + 'px'
-        let style = {
-          left,
-          width
-        }
-        return this.obj2style(style)
+        return { left, width }
       }
     },
     menuStyle: {
@@ -98,6 +138,24 @@ export default {
         style.fontSize = this.font + 'px'
         style.width = this.navWidth + 'px'
         return this.obj2style(style)
+      }
+    },
+    marginLeft () {
+      let marginLeft = null
+      const self = this
+      if (!self.menuWidth) {
+          // 如果没有
+        self.navWidth = self.winWidth / self.navList.length
+      } else {
+        self.navWidth = self.menuWidth
+        if (self.leftFloat) {
+          const contentWidth = self.menuWidth * self.navList.length
+          marginLeft = (self.winWidth - contentWidth) / 2
+        }
+        if (self.rightFloat !== true) {
+          marginLeft = '-' + marginLeft
+        }
+        return marginLeft
       }
     }
   },
@@ -108,19 +166,6 @@ export default {
         // self.navWidth = res.windowWidth
         self.winWidth = info.windowWidth
         self.winHeight = info.windowHeight
-        if (!self.menuWidth) {
-            // 如果没有
-          self.navWidth = self.winWidth / self.navList.length
-        } else {
-          self.navWidth = self.menuWidth
-          if (self.leftFloat) {
-            const contentWidth = self.menuWidth * self.navList.length
-            self.marginLeft = (self.winWidth - contentWidth) / 2
-          }
-          if (self.rightFloat === true) {
-            self.rightFloat = ''
-          }
-        }
       }
     })
   }
@@ -130,49 +175,41 @@ export default {
 .swiper-tab {
   width: 100%;
   text-align: center;
-  line-height: 42px;
   white-space: nowrap;
   position: relative;
 }
 .swiper-tab .swiper-tab-item {
-  transition: all 0.2s;
-  font-size: 18px;
-  height: 42px;
+  font-size: 30rpx;
+  height: 100%;
   display: inline-block;
-  color: #777777;
+}
+.active-tab-item span {
+  padding: 5rpx 0;
+  border-bottom: 5rpx #FFF solid;
+  color: #FFF;
+}
+.days-mode {
+  padding: 10rpx;
+}
+.days-mode div {
+  padding: 5rpx;
+}
+.days-mode .active {
+  background: #2a81e4;
+  border-radius: 50%;
+  width:46rpx;
+  height:46rpx;
+  color: #FFF;
+  margin:0 auto;
 }
 .swiper-tab .block {
   display: block;
   position: absolute;
   left: 0;
-  height: 2px;
+  height: 16rpx;
   background: red;
-  top:4.7vh;
+  top:4.6vh;
   transition: left 0.2s;
   z-index: 99;
 }
-/* .swiper-tab {
-  width: 100%
-  text-align: center
-  line-height: 42px
-  white-space: nowrap
-  position: relative
-  .swiper-tab-item {
-    transition: all $time
-    font-size: 18px
-    height: 42px
-    display: inline-block
-    color: #777777
-  }
-  .block {
-    display: block
-    position: absolute
-    left: 0
-    height: 2px
-    background: $slider-color
-    bottom: 20px
-    transition: left $time
-    z-index: 99
-  }
-} */
 </style>

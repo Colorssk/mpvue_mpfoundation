@@ -2,7 +2,8 @@
   <div :style="{width: width, height: height, left: left, top: top, position: position}">
     <swiper
       :style="{height: height}"
-      :current="current"
+      :current="insideCurrent"
+      :currentListener="currentComputed"
       :indicator-dots="defaultConfig.indicatorDots"
       :indicator-color="defaultConfig.indicatorColor"
       :indicator-active-color="defaultConfig.indicatorActiveColor"
@@ -14,11 +15,12 @@
       :previous-margin="defaultConfig.previousMargin"
       :next-margin="defaultConfig.nextMargin"
       :display-multiple-items="defaultConfig.displayMultipleItems"
-      @change="swiperChanged" >
-      <block v-for="item in list" :key="item">
-        <swiper-item>
-          <scroll-view class="txt-block" scroll-y style="height: 100%">
-            <content-page :index="current" :data="item" ></content-page>
+      @change="swiperChanged"
+       >
+      <block v-for="(item, index) in list" :key="item">
+        <swiper-item style="background: #EEE">
+          <scroll-view class="txt-block" scroll-y style="height: 100%" @scrolltolower="setScrolltolower">
+            <content-page v-if="index === current" :index="index" :data="item" :scrolltolower="scrolltolowerValue"></content-page>
           </scroll-view>
         </swiper-item>
       </block>
@@ -27,7 +29,6 @@
 </template>
 
 <script>
-import card from '@/components/card'
 import contentPage from '@/components/contentPage'
 
 export default {
@@ -58,7 +59,6 @@ export default {
     }
   },
   components: {
-    card,
     contentPage
   },
   data () {
@@ -76,10 +76,23 @@ export default {
         nextMargin: '0px',
         displayMultipleItems: 1
       },
-      fixDoubleTap: 1
+      fixDoubleTap: 1,
+      insideCurrent: null,
+      insideCurrent2: null,
+      scrolltolowerValue: 0
     }
   },
   computed: {
+    currentComputed: {
+      get: function () {
+        // console.log(this.current, this.insideCurrent)
+        if (this.current === this.insideCurrent) {
+        } else {
+          this.insideCurrent = this.current
+          // return this.insideCurrent
+        }
+      }
+    },
     position: {
       get: function () {
         if (this.top !== '0' || this.left !== '0') {
@@ -89,10 +102,14 @@ export default {
     }
   },
   methods: {
+    setScrolltolower () {
+      this.scrolltolowerValue++
+    },
     swiperChanged (e) {
-      // this.current = e.target.current
-      // console.log(this.current)
-      // this.currentChanged(e.target.current)
+      if (e.target.source === 'touch') {
+        this.insideCurrent = e.target.current
+        this.currentChanged(e.target.current)
+      }
     },
     generateConfig () {
       this.config = this.config || {}
@@ -112,9 +129,5 @@ export default {
 <style>
 .slide-image {
   width: 100%;
-  /* height: 100%; */
-}
-.txt-block {
-  /* padding: 20rpx 40rpx; */
 }
 </style>

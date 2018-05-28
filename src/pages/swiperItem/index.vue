@@ -5,6 +5,7 @@
       height="5vh"
       :leftFloat="true"
       :menuWidth="100"
+      sliderBlockColor="#777"
       :currentTab="current"
       :currentChanged="currentChanged"
       :navList="list">
@@ -22,13 +23,11 @@
 
 <script>
 import swpierItem from '@/components/swiperItem'
-import card from '@/components/card'
 import slideNavbar from '@/components/slideNavbar'
 
 export default {
   components: {
     swpierItem,
-    card,
     slideNavbar
   },
   data () {
@@ -42,22 +41,7 @@ export default {
   },
   methods: {
     currentChanged (e) {
-      // console.log(this.currentChangedTime)
-      // if (this.currentChangedTime !== false) {
-      //   console.log('do')
-      //   this.currentChangedTime = false
-      //   this.current = e
-      // } else {
-      //   console.log('nodo')
-      //   this.currentChangedTime = true
-      // }
       this.current = e
-      // this.currentChangedTime = false
-      // console.log('e: ', e)
-      // if (onlyUpdateNav) {
-      //   console.log(111)
-      // } else {
-      // }
     }
   },
   created () {

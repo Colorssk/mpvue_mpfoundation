@@ -18,7 +18,6 @@
 </template>
 
 <script>
-import card from '@/components/card'
 import swiper from '@/components/swiper'
 import navbar from '@/components/navbar'
 
@@ -65,7 +64,6 @@ export default {
   },
 
   components: {
-    card,
     swiper,
     navbar
   },
