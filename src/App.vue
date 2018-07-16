@@ -10,6 +10,7 @@ export default {
   },
 
   onLaunch () {
+    
     // console.log('launched')
   }
 }

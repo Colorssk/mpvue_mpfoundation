@@ -27,10 +27,8 @@
     </swiper>
   </div>
 </template>
-
 <script>
 import contentPage from '@/components/contentPage'
-
 export default {
   props: {
     list: Object,

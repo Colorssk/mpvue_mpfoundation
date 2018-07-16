@@ -12,16 +12,40 @@ export default {
   config: {
     // 页面前带有 ^ 符号的，会被编译成首页，其他页面可以选填，我们会自动把 webpack entry 里面的入口页面加进去
     pages: [
-      '^pages/preload/main',
-      'pages/logs/main',
+     // '^pages/preload/main',
+      '^pages/logs/main',
       'pages/index/main',
-      'pages/swiperItem/main'
+      'pages/swiperItem/main',
+      'pages/about/main'
     ],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
       navigationBarTitleText: 'WeChat',
       navigationBarTextStyle: 'black'
+    },
+    'tabBar': {
+      selectedColor: '#EA5149',
+      list: [
+        {
+          pagePath: 'pages/logs/main',
+          text: '首页',
+          iconPath: 'static/img/main.png',
+          selectedIconPath: 'static/img/main-active.png'
+        },
+        {
+          pagePath: 'pages/swiperItem/main',
+          text: '案例展示',
+          iconPath: 'static/img/show.png',
+          selectedIconPath: 'static/img/show-active.png'
+        },
+        {
+          pagePath: 'pages/about/main',
+          text: '联系我们',
+          iconPath: 'static/img/show.png',
+          selectedIconPath: 'static/img/show-active.png'
+        }
+      ]
     }
   }
 }

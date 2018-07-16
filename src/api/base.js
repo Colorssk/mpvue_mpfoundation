@@ -58,5 +58,27 @@ export default {
       url: config.baseUrl + '/table/DYTo26BC',
       cache: false
     })
+  },
+  getSrc () {
+    // data = data || {}
+    // data.appid = data.appid || config.appid
+    // //data.appid = '5af9248f95c0ea4ed041e18e'
+    // data.limit = data.limit || 20
+    // data.page = data.page || 1
+    return mkit.get({
+      url: 'https://www.easy-mock.com/mock/5af9248f95c0ea4ed041e18e/example/mock#!method=get',
+      cache: false
+    })
+  },
+  getTest () {
+    // data = data || {}
+    // data.appid = data.appid || config.appid
+    // //data.appid = '5af9248f95c0ea4ed041e18e'
+    // data.limit = data.limit || 20
+    // data.page = data.page || 1
+    return mkit.get({
+      url: 'https://www.easy-mock.com/mock/5af9248f95c0ea4ed041e18e/example/home_first#!method=get',
+      cache: false
+    })
   }
 }

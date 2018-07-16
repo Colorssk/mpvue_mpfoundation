@@ -20,12 +20,12 @@
 			"current": -1,
 			"list": []
 		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
 		"game": {
 			"currentL": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
 			"list": []
 		},
 		"miniprogram": {
@@ -35,6 +35,24 @@
 					"id": -1,
 					"name": "swiperItem",
 					"pathName": "pages/swiperItem/main",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "test",
+					"pathName": "pages/swiperItem/main",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "首页",
+					"pathName": "pages/logs/main",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "map",
+					"pathName": "pages/tel/main",
 					"query": ""
 				}
 			]

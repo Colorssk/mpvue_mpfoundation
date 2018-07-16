@@ -2,7 +2,7 @@
   <ul>
     <slide-navbar
       width="100vw"
-      height="7.5vh"
+      height="5vh"
       :leftFloat="true"
       sliderBlockColor="#777"
       :currentTab="current"
@@ -12,8 +12,8 @@
     <swpier-item
       :currentChanged="currentChanged"
       width="100vw"
-      height="92.5vh"
-      top="7.5vh"
+      height="95vh"
+      top="5vh"
       :list="list"
       :current="current">
     </swpier-item>
@@ -53,11 +53,12 @@ export default {
     //   console.log(r)
     // }).catch(e=>{})
     // // console.log(config)
-  //     const test_config = api.base.getTest().then(res=>{
-  //     console.log(res.data.newEvents)
-  //   }).catch(e=>{
-  //     console.log(e)
-  //   })
+  //     const test_config = api.base.getArea().then(res=>{
+  //     consloe.log(res)
+  //   }).catch(e=>{})
+  //     const test = api.base.getTest().then(res=>{
+  //       console.log(res)
+  //     }).catch(e=>{})
    }
 }
 </script>

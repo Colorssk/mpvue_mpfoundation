@@ -2,7 +2,35 @@
   <div :style="{display: display}">
     <!-- custom components -->
     <!-- <intro v-if="data.title == 'introduction'"></intro> -->
-    <div>content Page</div>
+    <div class="wraper">
+      <div v-if="index===0" class="container">
+        
+        <div v-for=" (item,index) in swipter_slide" :key="index"  class="bg" :style="{backgroundImage:'url(' + item.src + ')', backgroundRepeat:'no-repeat', backgroundPosition:'center center', backgroundSize: 'contain'}"><div class="info"><span class="info_title">{{swipter_text[index].info_a}}</span>{{swipter_text[index].info_b}}</div></div>
+        
+      </div>
+      
+      <div v-if="index===1" class="container">
+         <div v-for=" (item,index) in swipter_slide" :key="index"  class="bg" :style="{backgroundImage:'url(' + item.src + ')', backgroundRepeat:'no-repeat', backgroundPosition:'center center', backgroundSize: 'contain'}"><div class="info"><span class="info_title">{{swipter_text[index].info_a}}</span>{{swipter_text[index].info_b}}</div></div> 
+      </div>    
+      
+      <div v-if="index===2" class="container">
+         <div v-for=" (item,index) in swipter_slide" :key="index"  class="bg" :style="{backgroundImage:'url(' + item.src + ')', backgroundRepeat:'no-repeat', backgroundPosition:'center center', backgroundSize: 'contain'}"><div class="info"><span class="info_title">{{swipter_text[index].info_a}}</span>{{swipter_text[index].info_b}}</div></div>
+      </div>    
+      
+      <div v-if="index===3" class="container">
+         <div v-for=" (item,index) in swipter_slide" :key="index"  class="bg" :style="{backgroundImage:'url(' + item.src + ')', backgroundRepeat:'no-repeat', backgroundPosition:'center center', backgroundSize: 'contain'}"><div class="info"><span class="info_title">{{swipter_text[index].info_a}}</span>{{swipter_text[index].info_b}}</div></div> 
+      </div> 
+      
+      <div v-if="index===4" class="container">
+         <div v-for=" (item,index) in swipter_slide" :key="index"  class="bg" :style="{backgroundImage:'url(' + item.src + ')', backgroundRepeat:'no-repeat', backgroundPosition:'center center', backgroundSize: 'contain'}"><div class="info"><span class="info_title">{{swipter_text[index].info_a}}</span>{{swipter_text[index].info_b}}</div></div>  
+      </div>  
+      
+      <div v-if="index===5" class="container">
+         <div v-for=" (item,index) in swipter_slide" :key="index"  class="bg" :style="{backgroundImage:'url(' + item.src + ')', backgroundRepeat:'no-repeat', backgroundPosition:'center center', backgroundSize: 'contain'}"><div class="info"><span class="info_title">{{swipter_text[index].info_a}}</span>{{swipter_text[index].info_b}}</div></div>  
+      </div>    
+   
+   </div>    
+
   </div>
 </template>
 
@@ -11,6 +39,7 @@
  * custom components
  */
 // import intro from '@/components/school/intro'
+import api from '@/api'
 
 export default {
   name: 'contentPage',
@@ -30,8 +59,16 @@ export default {
   },
   data () {
     return {
-      display: 'block'
-    }
+      display: 'block',
+      swipter_slide:[],
+      swipter_text: [] 
+       }
+  },
+  created(){
+    api.base.getSrc().then(res=>{
+      this.swipter_slide = res.data.swipter_slide
+      this.swipter_text = res.data.swipter_text
+    })
   },
   computed: {
     jsonData () {
@@ -67,4 +104,43 @@ export default {
 </script>
 
 <style>
+.wraper{
+  width:750rpx;
+  
+}
+.container{
+    display:flex;
+    padding:0;
+    flex-wrap: wrap;
+    font-size: 0;
+    
+}
+.bg{
+  display: block;
+  height: 345rpx;
+  min-width: 46%;
+  max-width: 46%;
+  margin-left: 20rpx;
+  margin-top: 20rpx;
+  background-size: cover;
+   border-radius: 15px;
+
+}
+.info{
+  font-family:serif;
+  display: inline-block;
+  color: brown;
+  width:299rpx;
+  height: 141rpx;
+  font-size: 22rpx;
+  margin:189rpx 20rpx 20rpx;
+  white-space: space wrap;
+  overflow: hidden;
+}
+.info_title{
+  display: block;
+  font-size: 35rpx;
+  font-family:serif;
+  }
+
 </style>

@@ -21,7 +21,7 @@ export default {
     },
     goHome () {
       return wx.reLaunch({
-        url: '../list/main'
+        url: '../logs/main'
       })
     },
     checkToken (code) {

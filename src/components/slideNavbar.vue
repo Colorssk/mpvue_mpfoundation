@@ -1,16 +1,8 @@
 <template>
   <div :style="{backgroundColor: backgroundColor, color: fontColor}">
   <scroll-view class="swiper-tab" scroll-x :style="{width: width, height: height, marginLeft: marginLeft + 'px'}">
-    <!-- default mode -->
-    <view v-if="mode =='default'" :style="menuStyle" v-for=" (item,index) in navList" :key="index" class="swiper-tab-item" :data-current="index" @click="swichNav(index)">{{item.title}}</view>
+  <view v-if="mode =='default'"   :style="menuStyle" v-for=" (item,index) in navList" :key="index" class="swiper-tab-item" :class="{'active': currentTab===index}" :data-current="index" @click="swichNav(index)">{{item.title}}</view>
     <view v-if="mode =='default'" class="block" :style="{left: style.left, width: style.width, backgroundColor: sliderBlockColor}"></view>
-    <!-- day mode -->
-    <view v-if="mode =='day'" :style="menuStyle" v-for=" (item,index) in days" :key="index" class="swiper-tab-item days-mode" :data-current="index" @click="swichDate(index)">
-      <div>{{item.dayName}}</div><div :class="index == currentDateIndex ? 'active' : ''">{{item.dayNumber}}</div>
-    </view>
-    <!-- items mode -->
-    <view v-if="mode =='items'" :style="menuStyle" v-for=" (item,index) in navList" :key="index" class="swiper-tab-item" :class="currentTab === index ? 'active-tab-item' : ''" :data-current="index" @click="swichNav(index)"><span>{{item.title}}</span></view>
-
   </scroll-view>
   </div>
 </template>
@@ -102,6 +94,11 @@ export default {
     }
   },
   computed: {
+    // hightlight(){
+      
+    //     this.$refs.tag.style.fontColor='red'
+      
+    //    },
     days () {
       const dayName = ['日', '一', '二', '三', '四', '五', '六']
       const date = new Date()
@@ -127,8 +124,8 @@ export default {
       get: function () {
         // 计算左侧剩余多少宽度，所以滚动条起始位置要加
         let leftWidth = (this.winWidth - this.navList.length * this.navWidth) / 2
-        let width = this.navWidth + 'px'
-        let left = leftWidth + this.navWidth * this.currentTab + 'px'
+        let width = this.navWidth/3 +8+ 'px'
+        let left = leftWidth + this.navWidth * this.currentTab +42+ 'px'
         return { left, width }
       }
     },
@@ -174,15 +171,28 @@ export default {
 <style scoped>
 .swiper-tab {
   width: 100%;
+  height: 100px;
   text-align: center;
   white-space: nowrap;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.view-div {
+  display: inline-block;
+  background: green;
+  padding: 15rpx 25rpx;
+  border: 1rpx solid #fff;
+  flex:1;
 }
 .swiper-tab .swiper-tab-item {
   font-size: 30rpx;
   height: 100%;
   display: inline-block;
 }
+
 .active-tab-item span {
   padding: 5rpx 0;
   border-bottom: 5rpx #FFF solid;
@@ -205,11 +215,16 @@ export default {
 .swiper-tab .block {
   display: block;
   position: absolute;
-  left: 0;
+  left: 0rpx;
   height: 16rpx;
   background: red;
-  top:4.6vh;
+  top:7vh;
   transition: left 0.2s;
   z-index: 99;
+  margin-left: -45rpx;
 }
+.swiper-tab-item.active{
+  color: #2a81e4;
+}
+
 </style>
