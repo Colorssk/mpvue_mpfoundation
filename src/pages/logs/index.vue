@@ -20,7 +20,7 @@
             
           </div>
             <div class="container_foot">
-              <div v-for="(item,index) in text" :key="index" class="text_w">{{item.content}}<br/>{{item.content_a}}</div>
+              <div v-for="(item,index) in text" :key="index" class="text_w">{{item.content}}<br/><span class="text_s">{{item.content_a}}</span></div>
             </div>         
       
            <div class="middle_info">优质客户 </div> 
@@ -238,7 +238,7 @@ image{
   margin-top:12rpx;
   margin-left: 300rpx;
   text-align:left;
-  color: rgba(202, 209, 204, 0.37);
+  color: rgba(202, 209, 204, 0.9);
   font-size: 11px;
   white-space: nowrap;
 }
@@ -257,7 +257,7 @@ image{
   margin-left: 67rpx;
   margin-top: 70rpx;
   margin-bottom: 69rpx;
-  font-size: 30rpx;
+  font-size: 46rpx;
   color: white;
   white-space: nowrap;
 }
@@ -267,7 +267,7 @@ image{
   height: 34rpx;
   font-size: 20px;
   font-family: "华文彩云";
-  color: rgba(40, 61, 156, 0.719);
+  color:#5d84f3;
   text-align: left;
   line-height: 34rpx;
   letter-spacing: 1px;
@@ -284,7 +284,7 @@ image{
   margin-top:12rpx;
   margin-left: 263rpx;
   text-align:left;
-  color: rgba(202, 209, 204, 0.37);
+  color: rgba(202, 209, 204, 0.9);
   font-size: 11px;
   white-space: nowrap;
 }
@@ -307,12 +307,10 @@ image{
   padding:0px;
   overflow: hidden;
   white-space: nowrap;
-  overflow:scroll;
+  overflow-x:hidden;
   overflow-y:hidden;
 }
-.middle_body::-webkit-scrollbar{
-  display:none;
-}
+
 .middle_slide_bg{
   display: block;
   width:173rpx;
@@ -366,7 +364,7 @@ image{
   height: 34rpx;
   font-size: 20px;
   font-family: "华文彩云";
-  color: #0b1b66b7;
+  color: #8caaff;
   text-align: left;
   line-height: 34rpx;
   letter-spacing: 1px;
@@ -383,7 +381,7 @@ image{
   margin-top:12rpx;
   margin-left: 298rpx;
   text-align:left;
-  color: rgba(202, 209, 204, 0.37);
+  color: rgba(202, 209, 204, 0.9);
   font-size: 11px;
   white-space: nowrap;
 }
@@ -475,6 +473,9 @@ image{
   position: relative;
   margin-bottom:50rpx;
   bottom: 67rpx;
+}
+.text_s{
+  font-size: 30rpx !important;
 }
 
 

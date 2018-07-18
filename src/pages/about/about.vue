@@ -186,7 +186,7 @@ export default {
 }
 .map_info{ 
   position: absolute;
-  top:316rpx;
+  top:280rpx;
   z-index:100;
   background-color:rgb(255,255,255);
   width: 710rpx;
