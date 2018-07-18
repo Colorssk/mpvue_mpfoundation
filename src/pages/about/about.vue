@@ -14,7 +14,7 @@
           <div class="s_box">联系电话： 180-129-01065</div>
           <div class="s_box">固定电话： 025-5760-3388</div>
           <div class="s_box">联系地址： 南京市U谷未来网络小镇（3号线秣周东路地铁站下）</div>
-          <div class="s_box">534783032</div>
+          <div class="s_box">业务QQ： 534783032</div>
         </div>
 
 
@@ -190,10 +190,12 @@ export default {
   z-index:100;
   background-color:rgb(255,255,255);
   width: 710rpx;
-  height: 733rpx;
+  height: 750rpx;
   margin-left:20rpx; 
   bottom: 50rpx;
   box-shadow:#000000 4px 10px (120%)6%;
+  border: 1px solid rgb(238,238,238);
+
 }
 .title{
   display: block;
@@ -208,6 +210,7 @@ export default {
   padding: 0rpx;
   color: rgb(52,52,52);
   text-align: left;
+  font-weight: bold;
  
 
 }
@@ -227,7 +230,7 @@ export default {
   width: 594rpx;
   margin-left: 58rpx;
   position: relative;
-  top: 193rpx;
+  top: 200rpx;
   bottom: 460rpx;
   height: 80rpx;
   font-size: 25rpx;
@@ -244,25 +247,28 @@ export default {
   font-family:"pingFangSC-Regular";
   font-size: 29rpx;
   height: 29rpx;
-  top: 356rpx;
+  top: 310rpx;
   padding: 0rpx;
   color: rgb(52,52,52);
   text-align: left;
+  font-weight: bold;
+  
 }
 .tel_icon{
   display: block;
   position: relative;
   width:80rpx;
   height: 2rpx;
-  top: 405rpx;
+  top: 358rpx;
   left: 36rpx;
   background-color:rgb(102,102,102);
 }
 .box{
   display: block;
   position: absolute;
-  left:5%;
-  top:600rpx;
+  left:8%;
+  top:544rpx;
+
 
   
 }
@@ -273,7 +279,7 @@ export default {
   font-size: 25rpx;
   text-align: left;
   font-family:"pingFangSC-Regular";
-  color: rgb(52,52,52);
+  color: rgb(102,102,102);
   padding: 0rpx;
 
 }

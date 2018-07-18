@@ -25,7 +25,7 @@ export default {
       navigationBarTextStyle: 'black'
     },
     'tabBar': {
-      selectedColor: '#EA5149',
+      selectedColor: '#6495ED',
       list: [
         {
           pagePath: 'pages/logs/main',
@@ -42,8 +42,8 @@ export default {
         {
           pagePath: 'pages/about/main',
           text: '联系我们',
-          iconPath: 'static/img/show.png',
-          selectedIconPath: 'static/img/show-active.png'
+          iconPath: 'static/img/access.png',
+          selectedIconPath: 'static/img/access-active.png'
         }
       ]
     }

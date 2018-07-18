@@ -39,36 +39,36 @@
                  <div style="display:block">
                   <div class=queding>确立意向<div class="queidng_info">建立合作意向 明确项目需求</div></div>
                   <div class="circle one"></div>
-                  <div class="connect_icon"></div>
+                  <img class="connect_icon" src="http://192.168.31.210/static/img/%E6%9C%8D%E5%8A%A1%E6%B5%81%E7%A8%8B%E8%BF%9E%E7%BA%BF.png" mode="aspectFit"/>
                  </div>
                  <div style="display:block">
                    <div class="circle two"></div>
                    <div class="zhouqi">周期和费用<div class="zhouqi_info">确定项目设计 制作时间和费用</div></div>
-                   <div class="connect_icon two"></div>
+                   <img class="connect_icon two" src="http://192.168.31.210/static/img/%E6%9C%8D%E5%8A%A1%E6%B5%81%E7%A8%8B%E8%BF%9E%E7%BA%BF.png" mode="aspectFit"/>
                  </div>
                  <div class="three">
                   <div class=qianshu>签署协议<div class="qianshu_info">签署项目合同 支付启动定金</div></div>
                     <div class="circle three"></div>
-                    <div class="connect_icon three"></div>
+                    <img class="connect_icon three" src="http://192.168.31.210/static/img/%E6%9C%8D%E5%8A%A1%E6%B5%81%E7%A8%8B%E8%BF%9E%E7%BA%BF.png" mode="aspectFit"/>
                  </div>
                  <div style="display:block">
                    <div class="circle two"></div>
                    <div class="zhouqi">项目执行<div class="zhouqi_info">3-5个工作日内确定设计风格</div></div>
-                   <div class="connect_icon two"></div>
+                   <img class="connect_icon two" src="http://192.168.31.210/static/img/%E6%9C%8D%E5%8A%A1%E6%B5%81%E7%A8%8B%E8%BF%9E%E7%BA%BF.png" mode="aspectFit"/>
                  </div>
                 <div class="three">
-                  <div class=qianshu>修改及确认<div class="qianshu_info">完成项目设计部分 并最终确认</div></div>
+                  <div class=qianshu>修改及确认<div class="qianshu_info info_two">完成项目设计部分 并最终确认</div></div>
                     <div class="circle three"></div>
-                    <div class="connect_icon three"></div>
+                    <img class="connect_icon three" src="http://192.168.31.210/static/img/%E6%9C%8D%E5%8A%A1%E6%B5%81%E7%A8%8B%E8%BF%9E%E7%BA%BF.png" mode="aspectFit"/>
                  </div>
                  <div style="display:block">
                    <div class="circle two"></div>
                    <div class="zhouqi">项目验收<div class="zhouqi_info">支付尾款 并提交项目源文件</div></div>
-                   <div class="connect_icon two"></div>
+                   <img class="connect_icon two" src="http://192.168.31.210/static/img/%E6%9C%8D%E5%8A%A1%E6%B5%81%E7%A8%8B%E8%BF%9E%E7%BA%BF.png" mode="aspectFit"/>
                  </div>
                  <div class="three">
-                    <div class=qianshu>售后服务<div class="qianshu_info">项目结束提供免费三个月售后</div></div>
-                    <div class="circle three"></div>
+                    <div class=qianshu>售后服务<div class="qianshu_info info_two">项目结束提供免费三个月售后</div></div>
+                    <img class="circle three"/>
                  </div>
                     
                 
@@ -146,6 +146,9 @@ export default {
   font-size: 22rpx;
   color:rgba(202, 209, 204, 0.37);
 }
+.info_two{
+  margin-left:-140rpx;
+}
 .container{
   padding:0px;
   overflow-y:scroll;
@@ -204,6 +207,7 @@ export default {
   margin-right: 0px;
   font-size: 0px;
   padding:0px;
+  margin-bottom: -20rpx;
   }
 .swiper{
   width: 750rpx;
@@ -253,7 +257,7 @@ image{
   margin-left: 67rpx;
   margin-top: 70rpx;
   margin-bottom: 69rpx;
-  font-size: 25rpx;
+  font-size: 30rpx;
   color: white;
   white-space: nowrap;
 }
@@ -350,9 +354,9 @@ image{
 }
 .foot_box{
   display: block;
-  margin-top:80rpx;
+  margin-top:60rpx;
   width: 750rpx;
-  height: 100vh;
+  height: 1200rpx;
   padding: 0px;
   background: url("http://192.168.31.210/static/img/%E6%9C%8D%E5%8A%A1%E6%B5%81%E7%A8%8B%E8%83%8C%E6%99%AF.png");
 }
@@ -435,10 +439,9 @@ image{
 }
 .connect_icon{
   display: block;
-  width: 20rpx;
+  width: 12rpx;
   height: 81rpx;
-  background: url("http://192.168.31.210/static/img/%E6%9C%8D%E5%8A%A1%E6%B5%81%E7%A8%8B%E8%BF%9E%E7%BA%BF.png");
-  margin-left: 363rpx;
+  margin-left: 367rpx;
   margin-top: -13rpx;
   background-size: cover;
 }

@@ -5,7 +5,7 @@
     <div class="wraper">
       <div v-if="index===0" class="container">
         
-        <div v-for=" (item,index) in swipter_slide" :key="index"  class="bg" :style="{backgroundImage:'url(' + item.src + ')', backgroundRepeat:'no-repeat', backgroundPosition:'center center', backgroundSize: 'contain'}"><div class="info"><span class="info_title">{{swipter_text[index].info_a}}</span>{{swipter_text[index].info_b}}</div></div>
+        <div v-for=" (item,index) in swipter_slide" :key="index"  class="bg" :style="{backgroundImage:'url(' + item.src + ')',opacity:'0.8',  backgroundRepeat:'no-repeat', backgroundPosition:'center center', backgroundSize: 'contain'}"><div class="info"><span class="info_title">{{swipter_text[index].info_a}}</span>{{swipter_text[index].info_b}}</div></div>
         
       </div>
       
@@ -129,13 +129,14 @@ export default {
 .info{
   font-family:serif;
   display: inline-block;
-  color: brown;
+  color: rgb(255, 255, 255);
   width:299rpx;
   height: 141rpx;
   font-size: 22rpx;
   margin:189rpx 20rpx 20rpx;
   white-space: space wrap;
   overflow: hidden;
+  font-family: PingFangSC-Medium 30px;
 }
 .info_title{
   display: block;
