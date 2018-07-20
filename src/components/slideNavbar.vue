@@ -217,7 +217,7 @@ export default {
   position: absolute;
   left: 0rpx;
   height: 16rpx;
-  background: red;
+  background: #2a81e4 !important;
   top:7vh;
   transition: left 0.2s;
   z-index: 99;

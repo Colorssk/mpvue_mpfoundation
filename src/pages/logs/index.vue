@@ -1,10 +1,19 @@
 <template>
   <div>
-    <ul class="container ">
-      <li v-for="(log, index) in logs" :class="{ red: aa }" :key="index" class="log-item">
-      </li>
+    <scroll-view class="scroll">
+    <div class="container ">
+      <!-- <li v-for="(log, index) in logs" :class="{ red: aa }" :key="index" class="log-item">
+      </li> -->
       <div class="wraper">
-          <div class="head" :style="{backgroundImage: 'url('+ head +')'}"></div>
+          <div class="head" >
+            <swiper class="head_swipter" circular="true" autoplay="true" interval="5000" duration="500">
+                <block v-for="(item, index) in head_image" :index="index" :key="index">
+                   <swiper-item class="swipter_item">
+                      <image :src="item.src"  mode="aspectFit"/>
+                   </swiper-item>
+                </block>
+            </swiper>
+          </div>
           <div class="head_info">服务内容 </div>
           <div class="head_eng">Service Content</div>
           <div class="icon"></div>
@@ -20,7 +29,7 @@
             
           </div>
             <div class="container_foot">
-              <div v-for="(item,index) in text" :key="index" class="text_w">{{item.content}}<br/><span class="text_s">{{item.content_a}}</span></div>
+              <img src="http://192.168.31.210/static/img/foot_image.png" mode="aspectFit"/>
             </div>         
       
            <div class="middle_info">优质客户 </div> 
@@ -74,7 +83,8 @@
                 
             </div>
       </div>
-    </ul>
+    </div>
+    </scroll-view>
   </div>
 </template>
 
@@ -94,20 +104,23 @@ export default {
       list_two:[],
       text:[],
       head:'',
+      head_image: [],
       bg:{}
     }
   },
 
   created () {
     const logs = (wx.getStorageSync('logs') || [])
+    console.log(logs)
     this.logs = logs.map(log => formatTime(new Date(log)))
     api.base.getSrc().then(res=>{
+      console.log(res)
           this.bg = res.data
-          this.head = this.bg.head
           this.list = this.bg.list
           this.list_one = this.bg.list_one
           this.list_two = this.bg.list_two
           this.text = this.bg.text
+          this.head_image = this.bg.head_image
 
     }).catch(e=>{console(e)})
 
@@ -117,6 +130,10 @@ export default {
 </script>
 
 <style>
+.scroll{
+  width: 750rpx;
+  height: 100vh;
+}
 .three{
   display: block;
   margin-left: -1rpx;
@@ -293,8 +310,8 @@ image{
   width:50rpx;
   height: 2rpx;
   margin-left: 350rpx;
-  margin-top: 19rpx;
-  background-color:rgb(28, 43, 179);
+  margin-top: 20rpx;
+  background-color:#5d84f3;
 }
 .middle_body{
   display: flex;
@@ -331,9 +348,8 @@ image{
   margin-right: 0px;
   font-size: 0px;
   padding:0px;
-  overflow: hidden;
+  overflow-x: hidden;
   white-space: nowrap;
-  overflow:scroll;
   overflow-y:hidden;
 }
 .md_body::-webkit-scrollbar{
@@ -391,7 +407,7 @@ image{
   height: 3rpx;
   margin-left: 350rpx;
   margin-top: 19rpx;
-  background-color:rgb(28, 43, 179);
+  background-color:#8caaff;
 }
 .queding{
   display: inline-block;
@@ -476,6 +492,14 @@ image{
 }
 .text_s{
   font-size: 30rpx !important;
+}
+.head_swipter{
+  width: 100%;
+  height:100%;
+}
+.swipter_item>image{
+  width: 100%;
+  height: 400rpx;
 }
 
 

@@ -36,9 +36,9 @@ export default {
       list: [
         {title: '全部'},
         {title: '教育'},
-        {title: '科技'},
+        {title: '企宣'},
         {title: '医疗'},
-        {title: '社交'},
+        {title: '服务'},
         {title: '商城'}
       ]
     }

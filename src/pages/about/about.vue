@@ -11,9 +11,9 @@
         <div class="tel_title">联系方式</div>
         <div class="tel_icon"></div>
         <div class="box">
-          <div class="s_box">联系电话： 180-129-01065</div>
-          <div class="s_box">固定电话： 025-5760-3388</div>
-          <div class="s_box">联系地址： 南京市U谷未来网络小镇（3号线秣周东路地铁站下）</div>
+          <div class="s_box">联系电话： {{tel[0]}}<img src="http://192.168.31.210/static/img/phone.png"  mode="aspectFit" @click="tapPhone(tel[0])"/></div>
+          <div class="s_box">固定电话： {{tel[1]}}<img src="http://192.168.31.210/static/img/phone.png"  mode="aspectFit" @click="tapPhone(tel[1])"/></div>
+          <div class="s_box">联系地址： 南京市U谷未来网络小镇（3号线秣周东路站下）</div>
           <div class="s_box">业务QQ： 534783032</div>
         </div>
 
@@ -33,6 +33,7 @@ export default {
   data () {
     return {
       logs: [],
+      tel: ['180-129-01065','025-5760-3388'],
       markers: [{
       iconPath: "/resources/others.png",
       id: 0,
@@ -67,6 +68,7 @@ export default {
       clickable: true
     }]
     }
+  
   },
 
   created () {
@@ -114,7 +116,11 @@ export default {
   
 //}
   methods:{
-    
+      tapPhone(tel){
+        wx.makePhoneCall({
+           phoneNumber: tel
+         })
+      },
       regionchange(e){
           console,log(e.type)
       },
@@ -218,7 +224,7 @@ export default {
   display: block;
   position: relative;
   width:80rpx;
-  height: 1rpx;
+  height: 2rpx;
   top: 172rpx;
   left: 35rpx;
   background-color: rgb(102,102,102);
@@ -267,7 +273,7 @@ export default {
   display: block;
   position: absolute;
   left:8%;
-  top:544rpx;
+  top:525rpx;
 
 
   
@@ -281,6 +287,14 @@ export default {
   font-family:"pingFangSC-Regular";
   color: rgb(102,102,102);
   padding: 0rpx;
+  margin-bottom: 8rpx;
 
+}
+.s_box>image{
+  display: inline-block;
+  overflow: hidden;
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 25rpx;
 }
 </style>
