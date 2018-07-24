@@ -6,6 +6,6 @@ app.$mount()
 
 export default {
   config: {
-    navigationBarTitleText: 'the_first'
+    navigationBarTitleText: ''
   }
 }

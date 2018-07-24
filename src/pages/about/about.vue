@@ -7,14 +7,14 @@
         <div @click="tap" class="title">关于墨客云</div>
         <div class="icon"></div>
         <div class="about">墨客云科技（MokYun）是南京薄幕软件科技旗下的一家提供应用开发，运营，推广的一站式服务提供商，平台致力于为企业的微创
-          新从创意萌发，产品实现，成长发展提供全面的服务和支持</div>
+          新从创意萌发，产品实现，成长发展提供全面的服务和支持。</div>
         <div class="tel_title">联系方式</div>
         <div class="tel_icon"></div>
         <div class="box">
-          <div class="s_box">联系电话： {{tel[0]}}<img src="http://192.168.31.210/static/img/phone.png"  mode="aspectFit" @click="tapPhone(tel[0])"/></div>
-          <div class="s_box">固定电话： {{tel[1]}}<img src="http://192.168.31.210/static/img/phone.png"  mode="aspectFit" @click="tapPhone(tel[1])"/></div>
+          <div class="s_box" @click="tapPhone(tel[0])">联系电话： {{tel[0]}}&nbsp;&nbsp;&nbsp;&nbsp;<img :src="img_src"  mode="aspectFit" @click="tapPhone(tel[0])"/></div>
+          <div class="s_box" @click="tapPhone(tel[1])">固定电话： {{tel[1]}}<img :src="img_src"  mode="aspectFit" @click="tapPhone(tel[1])"/></div>
           <div class="s_box">联系地址： 南京市U谷未来网络小镇（3号线秣周东路站下）</div>
-          <div class="s_box">业务QQ： 534783032</div>
+          <div class="s_box">业务QQ:&nbsp;&nbsp;&nbsp;&nbsp;534783032</div>
         </div>
 
 
@@ -25,6 +25,7 @@
 
 <script>
 import { formatTime } from '@/utils/index'
+import api from '@/api'
 
 export default {
   components: {
@@ -33,6 +34,8 @@ export default {
   data () {
     return {
       logs: [],
+      img_src: '',
+      apiUrl: 'https://cdn1-open.mokyun.com/',
       tel: ['180-129-01065','025-5760-3388'],
       markers: [{
       iconPath: "/resources/others.png",
@@ -42,8 +45,8 @@ export default {
       width: 50,
       height: 50
     }],
-    latitude: 31.9590,
-    longitude: 118.8400,
+    latitude: 31.8750,
+    longitude: 118.8300,
     polyline: [{
       points: [{
         longitude: 118.531,
@@ -71,7 +74,7 @@ export default {
   
   },
 
-  created () {
+  onLoad () {
     const logs = (wx.getStorageSync('logs') || [])
     this.logs = logs.map(log => formatTime(new Date(log)))
      this.mapCtx = wx.createMapContext('map')
@@ -81,6 +84,13 @@ export default {
           this.latitude = res.latitude
       }
     })
+
+//console.log(111)
+    api.base.getSlide_two().then(res=>{
+          //colsole.log(res)
+          this.img_src = this.apiUrl+res.items[9].img_url
+          colsole.log(this.img_src)
+    }).catch(e=>{console(e)})
   },
   // async onLoad(){
   //    wx.getLocation({
@@ -293,8 +303,8 @@ export default {
 .s_box>image{
   display: inline-block;
   overflow: hidden;
-  width: 30rpx;
-  height: 30rpx;
-  margin-left: 25rpx;
+  width: 27rpx;
+  height: 27rpx;
+  margin-left: 30rpx;
 }
 </style>

@@ -6,11 +6,11 @@
       <div v-if="index===0" class="container">
         
        <div v-for=" (item,index) in swipter_slide" :key="index" class="bg_container"> 
-         <div  class="bg" :style="{backgroundImage:'url(' + item.src + ')',  backgroundRepeat:'no-repeat', backgroundPosition:'center center'}">
+         <div  class="bg" :style="{backgroundImage:'url(' + apiUrl+item.img_url + ')',  backgroundRepeat:'no-repeat', backgroundPosition:'center center'}">
           <div class="bg_cover">
             <div class="info">
                 <!-- <span class="info_title">{{swipter_text[index].info_a}}</span> -->
-                <span class="info_container"><span class="info_title">{{swipter_text[index].info_a}}</span>{{swipter_text[index].info_b}}</span>
+                <span class="info_container"><span class="info_title">{{swipter_text[index]}}</span>{{swipter_text_info[index]}}</span>
             </div>
           </div>
         </div>
@@ -21,11 +21,11 @@
       <div v-if="index===1" class="container">
            
        <div v-for=" (item,index) in edu_slide" :key="index" class="bg_container"> 
-         <div  class="bg" :style="{backgroundImage:'url(' + item.src + ')',  backgroundRepeat:'no-repeat', backgroundPosition:'center center'}">
+         <div  class="bg" :style="{backgroundImage:'url(' + apiUrl+item.img_url + ')',  backgroundRepeat:'no-repeat', backgroundPosition:'center center'}">
           <div class="bg_cover">
             <div class="info">
                 <!-- <span class="info_title">{{swipter_text[index].info_a}}</span> -->
-                <span class="info_container"><span class="info_title">{{edu_text[index].info_a}}</span>{{edu_text[index].info_b}}</span>
+                <span class="info_container"><span class="info_title">{{edu_text[index]}}</span>{{edu_text_info[index]}}</span>
             </div>
           </div>
         </div>
@@ -35,11 +35,11 @@
       <div v-if="index===2" class="container">
          
          <div v-for=" (item,index) in cp_slide" :key="index" class="bg_container"> 
-         <div  class="bg" :style="{backgroundImage:'url(' + item.src + ')',  backgroundRepeat:'no-repeat', backgroundPosition:'center center'}">
+         <div  class="bg" :style="{backgroundImage:'url(' + apiUrl+item.img_url + ')',  backgroundRepeat:'no-repeat', backgroundPosition:'center center'}">
           <div class="bg_cover">
             <div class="info">
                 <!-- <span class="info_title">{{swipter_text[index].info_a}}</span> -->
-                <span class="info_container"><span class="info_title">{{cp_text[index].info_a}}</span>{{cp_text[index].info_b}}</span>
+                <span class="info_container"><span class="info_title">{{cp_text[index]}}</span>{{cp_text_info[index]}}</span>
             </div>
           </div>
         </div>
@@ -50,11 +50,11 @@
       <div v-if="index===3" class="container">
        
        <div v-for=" (item,index) in med_slide" :key="index" class="bg_container"> 
-         <div  class="bg" :style="{backgroundImage:'url(' + item.src + ')',  backgroundRepeat:'no-repeat', backgroundPosition:'center center'}">
+         <div  class="bg" :style="{backgroundImage:'url(' + apiUrl+item.img_url + ')',  backgroundRepeat:'no-repeat', backgroundPosition:'center center'}">
           <div class="bg_cover">
             <div class="info">
                 <!-- <span class="info_title">{{swipter_text[index].info_a}}</span> -->
-                <span class="info_container"><span class="info_title">{{med_text[index].info_a}}</span>{{med_text[index].info_b}}</span>
+                <span class="info_container"><span class="info_title">{{med_text[index]}}</span>{{med_text_info[index]}}</span>
             </div>
           </div>
         </div>
@@ -65,11 +65,11 @@
       <div v-if="index===4" class="container">
         
          <div v-for=" (item,index) in ser_slide" :key="index" class="bg_container"> 
-         <div  class="bg" :style="{backgroundImage:'url(' + item.src + ')',  backgroundRepeat:'no-repeat', backgroundPosition:'center center'}">
+         <div  class="bg" :style="{backgroundImage:'url(' + apiUrl+item.img_url + ')',  backgroundRepeat:'no-repeat', backgroundPosition:'center center'}">
           <div class="bg_cover">
             <div class="info">
                 <!-- <span class="info_title">{{swipter_text[index].info_a}}</span> -->
-                <span class="info_container"><span class="info_title">{{ser_text[index].info_a}}</span>{{ser_text[index].info_b}}</span>
+                <span class="info_container"><span class="info_title">{{ser_text[index]}}</span>{{ser_text_info[index]}}</span>
             </div>
           </div>
         </div>
@@ -80,11 +80,11 @@
       <div v-if="index===5" class="container">
          
           <div v-for=" (item,index) in shop_slide" :key="index" class="bg_container"> 
-         <div  class="bg" :style="{backgroundImage:'url(' + item.src + ')',  backgroundRepeat:'no-repeat', backgroundPosition:'center center'}">
+         <div  class="bg" :style="{backgroundImage:'url(' + apiUrl+item.img_url + ')',  backgroundRepeat:'no-repeat', backgroundPosition:'center center'}">
           <div class="bg_cover">
             <div class="info">
                 <!-- <span class="info_title">{{swipter_text[index].info_a}}</span> -->
-                <span class="info_container"><span class="info_title">{{shop_text[index].info_a}}</span>{{shop_text[index].info_b}}</span>
+                <span class="info_container"><span class="info_title">{{shop_text[index]}}</span>{{shop_text_info[index]}}</span>
             </div>
           </div>
         </div>
@@ -103,6 +103,7 @@
  */
 // import intro from '@/components/school/intro'
 import api from '@/api'
+import config from '@/config'
 
 export default {
   name: 'contentPage',
@@ -123,42 +124,248 @@ export default {
   data () {
     return {
       display: 'block',
+      apiUrl: '',
+
       swipter_slide: [],
       swipter_text: [],
+      swipter_text_info: [],
+      
       edu_slide: [], 
       edu_text: [],
+      edu_text_info: [],
+      
       ser_slide: [], 
       ser_text: [],
+      ser_text_info: [],
+      
       cp_slide: [], 
       cp_text: [],
+      cp_text_info: [],
+
       med_slide: [], 
       med_text: [],
+      med_text_info: [],
+
       shop_slide: [], 
-      shop_text: []
+      shop_text: [],
+      shop_text_info: []
       
        }
   },
-  created(){
-    api.base.getSrc().then(res=>{
-      
-      this.swipter_slide = res.data.swipter_slide
-      this.swipter_text = res.data.swipter_text
-      
-      this.edu_slide = res.data.edu_slide
-      this.edu_text = res.data.edu_text
-      
-      this.ser_slide = res.data.ser_slide
-      this.ser_text = res.data.ser_text
-      
-      this.cp_slide = res.data.cp_slide
-      this.cp_text = res.data.cp_text
+  onLoad(){
+    this.apiUrl = 'https://cdn1-open.mokyun.com/'
+    
+    api.base.getSlide().then(res=>{
+      res.items.forEach(v => {
+         if(v.cate == '2'){
+          
+         this.swipter_slide.push(v)
+         
+         if(v.sort =='1'){
+            this.edu_slide.push(v)
+          }
+          if(v.sort =='2'){
+            this.cp_slide.push(v)
+          }
+          if(v.sort =='3'){
+            this.med_slide.push(v)
+          }
+          if(v.sort =='4'){
+            this.ser_slide.push(v)
+          }
+          if(v.sort =='5'){
+            this.shop_slide.push(v)
+          }
+        }
+      });
+     
+    }).catch(e=>{console(e)})
 
-      this.med_slide = res.data.med_slide
-      this.med_text = res.data.med_text
+    //PAGE 2
+  api.base.getSlide_two().then(res=>{
+      res.items.forEach(v => {
+         if(v.cate == '2'){
+          
+         this.swipter_slide.push(v)
+         
+         if(v.sort =='1'){
+            this.edu_slide.push(v)
+          }
+          if(v.sort =='2'){
+            this.cp_slide.push(v)
+          }
+          if(v.sort =='3'){
+            this.med_slide.push(v)
+          }
+          if(v.sort =='4'){
+            this.ser_slide.push(v)
+          }
+          if(v.sort =='5'){
+            this.shop_slide.push(v)
+          }
+        }
+      });
+     
+    }).catch(e=>{console(e)})
 
-      this.shop_slide = res.data.shop_slide
-      this.shop_text = res.data.shop_text
-    })
+
+    //那文字的page1
+    api.base.getInfo().then(res=>{
+      let tempData = {}
+      let temp = ''
+      //console.log(res)
+      for(let i in res.items){
+        tempData = res.items[i]
+
+         
+         // console.log(b)
+
+        //console.log(tempData)
+        //这是全部的数据
+        if(tempData.author == '1'){
+           
+           temp = tempData.content.replace(/<.*?>/ig,"")
+          //console.log(tempData.content)
+          this.swipter_text.push(temp)
+          
+        }
+        if(tempData.author == '2'){
+          //console.log(tempData.content)
+          temp = tempData.content.replace(/<.*?>/ig,"")
+          this.swipter_text_info.push(temp)
+        }
+
+
+        //这里是拉取edu页面的数据
+        if(tempData.title == 'edu'){
+            
+            if(tempData.author =='1'){
+                temp = tempData.content.replace(/<.*?>/ig,"")
+                this.edu_text.push(temp)
+            }
+            
+            if(tempData.author =='2'){
+                temp = tempData.content.replace(/<.*?>/ig,"")
+                this.edu_text_info.push(temp)
+                  
+            }
+        }
+
+        //这里是拉取cp页面的数据
+        if(tempData.title == 'cp'){
+            
+            if(tempData.author =='1'){
+                 temp = tempData.content.replace(/<.*?>/ig,"")
+                this.cp_text.push(temp)
+            }
+            
+            if(tempData.author =='2'){
+                 temp = tempData.content.replace(/<.*?>/ig,"")
+                this.cp_text_info.push(temp)
+                  
+            }
+        }
+                
+        //这里是拉取med页面的数据
+        if(tempData.title == 'med'){
+            
+            if(tempData.author =='1'){
+                 temp = tempData.content.replace(/<.*?>/ig,"")
+                this.med_text.push(temp)
+            }
+            
+            if(tempData.author =='2'){
+                 temp = tempData.content.replace(/<.*?>/ig,"")
+                this.med_text_info.push(temp)
+                  
+            }
+        }
+
+
+        //这里是拉取ser页面的数据
+        if(tempData.title == 'ser'){
+            
+            if(tempData.author =='1'){
+                 temp = tempData.content.replace(/<.*?>/ig,"")
+                this.ser_text.push(temp)
+            }
+            
+            if(tempData.author =='2'){
+                 temp = tempData.content.replace(/<.*?>/ig,"")
+                this.ser_text_info.push(temp)
+                  
+            }
+        }
+      
+        //这里是拉取shop页面的数据
+        if(tempData.title == 'shop'){
+            
+            if(tempData.author =='1'){
+                 temp = tempData.content.replace(/<.*?>/ig,"")
+                this.shop_text.push(temp)
+            }
+            
+            if(tempData.author =='2'){
+                 temp = tempData.content.replace(/<.*?>/ig,"")
+                this.shop_text_info.push(temp)
+                  
+            }
+        }      
+      
+      }
+      
+    });
+    
+    //文字的pages_two
+
+    setTimeout(() => {
+              api.base.getInfo_two().then(res=>{
+      let tempData = {}
+      let temp = ''
+      //console.log(res)
+      for(let i in res.items){
+        tempData = res.items[i]
+        //console.log(tempData)
+     
+         // console.log(b)
+         //如果pages1已经拉取了数据
+          if(this.swipter_text.length){
+                if(tempData.author == '1'){
+          //console.log(tempData.content)
+        
+          let temp = tempData.content.replace(/<.*?>/ig,"")
+          this.swipter_text.push(temp)
+          
+        }
+        if(tempData.author == '2'){
+          //console.log(tempData.content)
+          let temp = tempData.content.replace(/<.*?>/ig,"")
+          this.swipter_text_info.push(temp)
+        }
+       
+          }
+        
+       //这里是拉取shop页面的数据
+        if(tempData.title == 'shop'){
+            
+            if(tempData.author =='1'){
+                 temp = tempData.content.replace(/<.*?>/ig,"")
+                this.shop_text.push(temp)
+            }
+            
+            if(tempData.author =='2'){
+                 temp = tempData.content.replace(/<.*?>/ig,"")
+                this.shop_text_info.push(temp)
+                  
+            }
+        }      
+      }
+    });
+    }, 500);
+
+
+    // console.log(this.swipter_text)
+    // console.log(this.swipter_text_info)
   },
   computed: {
     jsonData () {
@@ -166,6 +373,7 @@ export default {
     }
   },
   methods: {
+
     loading () {
       this.$loading()
       this.display = 'none'

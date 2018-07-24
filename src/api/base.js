@@ -70,6 +70,52 @@ export default {
       cache: false
     })
   },
+  getSlide () {
+    // data = data || {}
+    // data.appid = data.appid || config.appid
+    // //data.appid = '5af9248f95c0ea4ed041e18e'
+    // data.limit = data.limit || 20
+    // data.page = data.page || 1
+    return mkit.get({
+      url: 'https://api.mokyun.com/table/djMRMLVM?limit=20&appid=7',
+      cache: false
+    })
+  },
+  //https://api.mokyun.com/table/HC0FcqZE?limit=20&appid=7
+  getInfo () {
+    // data = data || {}
+    // data.appid = data.appid || config.appid
+    // //data.appid = '5af9248f95c0ea4ed041e18e'
+    // data.limit = data.limit || 20
+    // data.page = data.page || 1
+    return mkit.get({
+      url: 'https://api.mokyun.com/table/HC0FcqZE?limit=20&appid=7',
+      cache: false
+    })
+  },
+  getInfo_two () {
+    // data = data || {}
+    // data.appid = data.appid || config.appid
+    // //data.appid = '5af9248f95c0ea4ed041e18e'
+    // data.limit = data.limit || 20
+    // data.page = data.page || 1
+    return mkit.get({
+      url: 'https://api.mokyun.com/table/HC0FcqZE?limit=20&appid=7&page=2',
+      cache: false
+    })
+  },
+  getSlide_two () {
+    // data = data || {}
+    // data.appid = data.appid || config.appid
+    // //data.appid = '5af9248f95c0ea4ed041e18e'
+    // data.limit = data.limit || 20
+    // data.page = data.page || 1
+    return mkit.get({
+      url: 'https://api.mokyun.com/table/djMRMLVM?limit=20&appid=7&page=2',
+      cache: false
+    })
+  },
+  
   getTest () {
     // data = data || {}
     // data.appid = data.appid || config.appid
@@ -78,6 +124,19 @@ export default {
     // data.page = data.page || 1
     return mkit.get({
       url: 'https://www.easy-mock.com/mock/5af9248f95c0ea4ed041e18e/example/home_first#!method=get',
+      cache: false
+    })
+  },
+
+
+  getPhone () {
+    // data = data || {}
+    // data.appid = data.appid || config.appid
+    // //data.appid = '5af9248f95c0ea4ed041e18e'
+    // data.limit = data.limit || 20
+    // data.page = data.page || 1
+    return mkit.get({
+      url: 'https://api.mokyun.com/table/djMRMLVM?limit=20&appid=7&page=2',
       cache: false
     })
   }

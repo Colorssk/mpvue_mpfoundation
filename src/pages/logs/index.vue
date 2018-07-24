@@ -9,7 +9,7 @@
             <swiper class="head_swipter" circular="true" autoplay="true" interval="5000" duration="500">
                 <block v-for="(item, index) in head_image" :index="index" :key="index">
                    <swiper-item class="swipter_item">
-                      <image :src="item.src"  mode="aspectFit"/>
+                      <image :src="apiUrl+item.img_url"  mode="aspectFit"/>
                    </swiper-item>
                 </block>
             </swiper>
@@ -21,7 +21,7 @@
            <swiper class="swiper" circular="true" autoplay="true" interval="5000" duration="500">
                 <block v-for="(item, index) in list" :index="index" :key="index">
                    <swiper-item class="item">
-                      <image :src="item.src" class="slide-image" mode="aspectFill"/>
+                      <image :src="apiUrl+item.img_url" class="slide-image" mode="aspectFill"/>
                    </swiper-item>
                 </block>
             </swiper>
@@ -29,17 +29,17 @@
             
           </div>
             <div class="container_foot">
-              <img src="http://192.168.31.210/static/img/foot_image.png" mode="aspectFit"/>
+              <img src="https://cdn1-open.mokyun.com/1531992548528" mode="aspectFit"/>
             </div>         
       
            <div class="middle_info">优质客户 </div> 
           <div class="middle_eng">Hight Quality Customers</div>
           <div class="middle_icon"></div>
           <div class="middle_body">
-            <div v-for=" (item,index) in list_one" :key="index"  class="middle_slide_bg" :style="{backgroundImage:'url(' + item.src + ')', backgroundRepeat:'no-repeat', backgroundPosition:'center center'}"></div>
+            <div v-for=" (item,index) in list_one" :key="index"  class="middle_slide_bg" :style="{backgroundImage:'url(' + apiUrl+item.img_url + ')', backgroundRepeat:'no-repeat', backgroundPosition:'center center'}"></div>
           </div>
           <div class="md_body">
-            <div v-for=" (item,index) in list_two" :key="index"  class="md_slide_bg" :style="{backgroundImage:'url(' + item.src + ')', backgroundRepeat:'no-repeat', backgroundPosition:'center center'}"></div>
+            <div v-for=" (item,index) in list_two" :key="index"  class="md_slide_bg" :style="{backgroundImage:'url(' + apiUrl+item.img_url + ')', backgroundRepeat:'no-repeat', backgroundPosition:'center center'}"></div>
           </div>
             <div class="foot_box">
                  <div class="foot_info">服务流程 </div>
@@ -48,32 +48,32 @@
                  <div style="display:block">
                   <div class=queding>确立意向<div class="queidng_info">建立合作意向 明确项目需求</div></div>
                   <div class="circle one"></div>
-                  <img class="connect_icon" src="http://192.168.31.210/static/img/%E6%9C%8D%E5%8A%A1%E6%B5%81%E7%A8%8B%E8%BF%9E%E7%BA%BF.png" mode="aspectFit"/>
+                  <img class="connect_icon" src="https://cdn1-open.mokyun.com/1532308074798" mode="aspectFit"/>
                  </div>
                  <div style="display:block">
                    <div class="circle two"></div>
                    <div class="zhouqi">周期和费用<div class="zhouqi_info">确定项目设计 制作时间和费用</div></div>
-                   <img class="connect_icon two" src="http://192.168.31.210/static/img/%E6%9C%8D%E5%8A%A1%E6%B5%81%E7%A8%8B%E8%BF%9E%E7%BA%BF.png" mode="aspectFit"/>
+                   <img class="connect_icon two" src="https://cdn1-open.mokyun.com/1532308074798" mode="aspectFit"/>
                  </div>
                  <div class="three">
                   <div class=qianshu>签署协议<div class="qianshu_info">签署项目合同 支付启动定金</div></div>
                     <div class="circle three"></div>
-                    <img class="connect_icon three" src="http://192.168.31.210/static/img/%E6%9C%8D%E5%8A%A1%E6%B5%81%E7%A8%8B%E8%BF%9E%E7%BA%BF.png" mode="aspectFit"/>
+                    <img class="connect_icon three" src="https://cdn1-open.mokyun.com/1532308074798" mode="aspectFit"/>
                  </div>
                  <div style="display:block">
                    <div class="circle two"></div>
                    <div class="zhouqi">项目执行<div class="zhouqi_info">3-5个工作日内确定设计风格</div></div>
-                   <img class="connect_icon two" src="http://192.168.31.210/static/img/%E6%9C%8D%E5%8A%A1%E6%B5%81%E7%A8%8B%E8%BF%9E%E7%BA%BF.png" mode="aspectFit"/>
+                   <img class="connect_icon two" src="https://cdn1-open.mokyun.com/1532308074798" mode="aspectFit"/>
                  </div>
                 <div class="three">
                   <div class=qianshu>修改及确认<div class="qianshu_info info_two">完成项目设计部分 并最终确认</div></div>
                     <div class="circle three"></div>
-                    <img class="connect_icon three" src="http://192.168.31.210/static/img/%E6%9C%8D%E5%8A%A1%E6%B5%81%E7%A8%8B%E8%BF%9E%E7%BA%BF.png" mode="aspectFit"/>
+                    <img class="connect_icon three" src="https://cdn1-open.mokyun.com/1532308074798" mode="aspectFit"/>
                  </div>
                  <div style="display:block">
                    <div class="circle two"></div>
                    <div class="zhouqi">项目验收<div class="zhouqi_info">支付尾款 并提交项目源文件</div></div>
-                   <img class="connect_icon two" src="http://192.168.31.210/static/img/%E6%9C%8D%E5%8A%A1%E6%B5%81%E7%A8%8B%E8%BF%9E%E7%BA%BF.png" mode="aspectFit"/>
+                   <img class="connect_icon two" src="https://cdn1-open.mokyun.com/1532308074798" mode="aspectFit"/>
                  </div>
                  <div class="three">
                     <div class=qianshu>售后服务<div class="qianshu_info info_two">项目结束提供免费三个月售后</div></div>
@@ -91,6 +91,7 @@
 <script>
 import { formatTime } from '@/utils/index'
 import api from '@/api'
+import config from '@/config'
 
 export default {
   components: {
@@ -105,23 +106,44 @@ export default {
       text:[],
       head:'',
       head_image: [],
-      bg:{}
+      bg:{},
+      apiUrl: ''
     }
   },
 
-  created () {
+  onLoad () {
     const logs = (wx.getStorageSync('logs') || [])
     console.log(logs)
     this.logs = logs.map(log => formatTime(new Date(log)))
-    api.base.getSrc().then(res=>{
-      console.log(res)
-          this.bg = res.data
-          this.list = this.bg.list
-          this.list_one = this.bg.list_one
-          this.list_two = this.bg.list_two
-          this.text = this.bg.text
-          this.head_image = this.bg.head_image
 
+    this.apiUrl = 'https://cdn1-open.mokyun.com/'
+
+    // api.base.getSrc().then(res=>{
+    //   console.log(res)
+    //       this.bg = res.data
+    //       this.text = this.bg.text
+          
+
+    // }).catch(e=>{console(e)})
+    
+    api.base.getSlide().then(res=>{
+      res.items.forEach(v => {
+        if(v.cate == '1'){
+        if(v.sort =='0'){
+          this.head_image.push(v)
+        }
+        if(v.sort =='1'){
+          this.list.push(v)
+        }
+        if(v.sort =='3'){
+          this.list_one.push(v)
+        }
+         if(v.sort =='4'){
+          this.list_two.push(v)
+        }
+        }
+      });
+     
     }).catch(e=>{console(e)})
 
   }
@@ -265,7 +287,6 @@ image{
   width: 750rpx;
   height:210rpx;
   margin-top: 60rpx;
-  background: url("http://192.168.31.210/static/img/%E6%95%B0%E5%AD%97%E5%B1%95%E7%A4%BA%E8%83%8C%E6%99%AF@2x.png");
 }
 .text_w{
   display: block;
@@ -318,7 +339,7 @@ image{
   width:750rpx;
   height: 106rpx;
   margin-top:60rpx;
-  margin-left: 0px;
+  margin-left: -7rpx;
   margin-right: 0px;
   font-size: 0px;
   padding:0px;
@@ -334,7 +355,7 @@ image{
   height: 106rpx;
   margin-top:0rpx;
   margin-bottom: 0rpx;
-  margin-left:20rpx;
+  margin-left:17rpx;
   min-width: 23%;
   max-width: 23%;
   background-size: cover;
@@ -344,7 +365,7 @@ image{
   width:750rpx;
   height: 106rpx;
   margin-top:6rpx;
-  margin-left: 0px;
+  margin-left: -7rpx;
   margin-right: 0px;
   font-size: 0px;
   padding:0px;
@@ -361,7 +382,7 @@ image{
   height: 106rpx;
   margin-top:0rpx;
   margin-bottom: 0rpx;
-  margin-left:20rpx;
+  margin-left:17rpx;
   min-width: 23%;
   max-width: 23%;
   background-size: cover;
@@ -372,7 +393,7 @@ image{
   width: 750rpx;
   height: 1200rpx;
   padding: 0px;
-  background: url("http://192.168.31.210/static/img/%E6%9C%8D%E5%8A%A1%E6%B5%81%E7%A8%8B%E8%83%8C%E6%99%AF.png");
+  background: url("https://cdn1-open.mokyun.com/1532307801226");
 }
 .foot_info{
   display:inline-block;
@@ -440,7 +461,7 @@ image{
   height: 60rpx;
   box-sizing: border-box;
   border-radius: 50%;
-  background: url("http://192.168.31.210/static/img/%E6%9C%8D%E5%8A%A1%E6%B5%81%E7%A8%8B%E8%8A%82%E7%82%B9.png");
+  background: url("https://cdn1-open.mokyun.com/1532308062330");
   margin-bottom: 15rpx;
   max-width:60rpx;
   min-width: 60rpx;

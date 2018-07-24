@@ -54,6 +54,12 @@
 					"name": "map",
 					"pathName": "pages/tel/main",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "案例",
+					"pathName": "pages/swiperItem/main",
+					"query": ""
 				}
 			]
 		}
